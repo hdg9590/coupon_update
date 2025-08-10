@@ -14,7 +14,7 @@ def lambda_handler(event, context):
 
     try:
         with connection.cursor() as cursor:
-            sql = "UPDATE users SET coupons = coupons - 1 WHERE id = %s AND coupons > 0"
+            sql = "UPDATE users SET coupon = coupon - 1 WHERE id = %s AND coupon > 0"
             cursor.execute(sql, (user_id,))
         connection.commit()
         return {
